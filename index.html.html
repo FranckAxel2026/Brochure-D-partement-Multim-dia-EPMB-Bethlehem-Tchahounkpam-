@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Département Multimédia — Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F8F2E4;
+    --paper-2:#F1E8D5;
+    --ink:#20293F;
+    --ink-soft:#4C5265;
+    --coral:#BC4E38;
+    --gold:#B8862E;
+    --teal:#2E6B58;
+    --line: rgba(32,41,63,0.14);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px;}
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; color:var(--ink);}
+  p{margin:0 0 14px 0; color:var(--ink-soft); max-width:62ch;}
+  .eyebrow{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    color:var(--coral); font-size:15px; margin-bottom:6px; display:block;
+  }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:88px 0 70px 0;
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-waves{
+    position:absolute; inset:0; opacity:0.5;
+  }
+  .hero h1{
+    color:var(--paper);
+    font-size:clamp(38px,6vw,64px);
+    font-weight:600;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+    max-width:11ch;
+  }
+  .hero .lede{
+    color:#D8D2C2; max-width:46ch; font-size:18px; margin-top:20px;
+  }
+  .hero .tagrow{
+    display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:34px;
+  }
+  .hero .tag{
+    font-size:13px; letter-spacing:0.02em; color:#B9C2B9;
+    border-top:1px solid rgba(248,242,228,0.3); padding-top:8px;
+    margin-right:22px; display:inline-block;
+  }
+
+  /* INTRO */
+  .intro{padding:56px 0 40px 0; border-bottom:1px solid var(--line);}
+  .intro h2{font-size:26px; font-weight:600; max-width:24ch;}
+  .intro p{margin-top:14px; font-size:17px;}
+
+  /* AXES */
+  .axis{
+    padding:54px 0; border-bottom:1px solid var(--line);
+  }
+  .axis-inner{display:flex; gap:44px; align-items:flex-start;}
+  .axis-inner.reverse{flex-direction:row-reverse;}
+  .axis-icon{flex:0 0 96px;}
+  .axis-icon svg{width:76px; height:76px;}
+  .axis-num{
+    font-family:'Fraunces', serif; font-size:14px; color:var(--ink-soft);
+    letter-spacing:0.08em;
+  }
+  .axis-body h3{font-size:26px; font-weight:600; margin:6px 0 10px 0;}
+  .axis-body p{font-size:16px;}
+  .chiplist{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .chip{
+    font-size:13px; padding:6px 12px; border-radius:100px;
+    border:1px solid var(--line); color:var(--ink-soft);
+    margin:0 8px 8px 0; display:inline-block;
+  }
+  .subgrid{display:grid; grid-template-columns:1fr 1fr; gap:10px 26px; margin-top:16px;}
+  .subgrid div{font-size:14.5px; color:var(--ink-soft); border-left:2px solid var(--line); padding-left:12px;}
+  .subgrid b{color:var(--ink); font-weight:600;}
+
+  @media(max-width:700px){
+    .axis-inner, .axis-inner.reverse{flex-direction:column;}
+    .subgrid{grid-template-columns:1fr;}
+  }
+
+  /* RUBRIQUES */
+  .rubriques{padding:60px 0; background:var(--paper-2); border-bottom:1px solid var(--line);}
+  .rubriques h2{font-size:26px; font-weight:600;}
+  .rub-row{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:32px; border-top:1px solid var(--line);}
+  .rub-item{padding:24px 22px; border-right:1px solid var(--line);}
+  .rub-item:last-child{border-right:none;}
+  .rub-item svg{width:34px; height:34px; margin-bottom:14px;}
+  .rub-item h4{font-family:'Fraunces', serif; font-weight:600; font-size:19px; margin:0 0 8px 0;}
+  .rub-item p{font-size:14.5px; margin:0;}
+  @media(max-width:700px){
+    .rub-row{grid-template-columns:1fr;}
+    .rub-item{border-right:none; border-bottom:1px solid var(--line);}
+  }
+
+  /* CHALLENGES INDEX */
+  .challenges{padding:60px 0;}
+  .challenges h2{font-size:26px; font-weight:600;}
+  .challenges > .wrap > p{margin-top:10px; font-size:16px;}
+  .idx{margin-top:30px; border-top:1px solid var(--line);}
+  .idx-row{
+    display:grid; grid-template-columns:56px 1fr 1.2fr; gap:18px;
+    padding:16px 0; border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .idx-row .n{font-family:'Fraunces', serif; color:var(--coral); font-size:15px; font-style:italic;}
+  .idx-row .t{font-weight:600; font-size:16px;}
+  .idx-row .d{font-size:14px; color:var(--ink-soft);}
+  @media(max-width:700px){
+    .idx-row{grid-template-columns:32px 1fr; }
+    .idx-row .d{grid-column:2 / 3;}
+  }
+
+  /* CALENDAR */
+  .calendar{padding:56px 0; background:var(--ink); color:var(--paper);}
+  .calendar h2{color:var(--paper); font-size:26px; font-weight:600;}
+  .cal-strip{
+    display:grid; grid-template-columns:repeat(7,1fr); gap:1px;
+    margin-top:28px; background:rgba(248,242,228,0.15); border:1px solid rgba(248,242,228,0.15);
+  }
+  .cal-day{background:var(--ink); padding:16px 12px; min-height:120px;}
+  .cal-day .d{font-family:'Fraunces', serif; font-style:italic; color:var(--gold); font-size:14px; margin-bottom:8px; display:block;}
+  .cal-day p{color:#CFC8B6; font-size:12.5px; margin:0;}
+  @media(max-width:800px){
+    .cal-strip{grid-template-columns:repeat(2,1fr);}
+  }
+
+  /* FOOTER CTA */
+  .cta{padding:64px 0 70px 0; text-align:left; border-bottom:1px solid var(--line);}
+  .cta h2{font-size:30px; font-weight:600; max-width:16ch;}
+  .cta p{font-size:16px; margin-top:14px;}
+  .cta .signoff{margin-top:30px; font-size:14px; color:var(--ink-soft);}
+  footer{padding:26px 0 40px 0;}
+  footer p{font-size:12.5px; color:var(--ink-soft); margin:0;}
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <svg class="hero-waves" viewBox="0 0 920 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 340 Q 115 300 230 340 T 460 340 T 690 340 T 920 340" stroke="#3A4560" stroke-width="1.5" fill="none"/>
+      <path d="M0 370 Q 115 330 230 370 T 460 370 T 690 370 T 920 370" stroke="#3A4560" stroke-width="1.5" fill="none"/>
+      <path d="M0 400 Q 115 360 230 400 T 460 400 T 690 400 T 920 400" stroke="#3A4560" stroke-width="1.5" fill="none"/>
+      <circle cx="800" cy="90" r="150" fill="none" stroke="#3A4560" stroke-width="1"/>
+      <circle cx="800" cy="90" r="100" fill="none" stroke="#3A4560" stroke-width="1"/>
+    </svg>
+    <div class="wrap">
+      <span class="eyebrow">Département Multimédia</span>
+      <h1>Raconter l'église, en direct et au quotidien</h1>
+      <p class="lede">Un dispositif au service de l'assemblée : diffuser les cultes, couvrir les activités et faire vivre nos plateformes numériques — sous la conduite de la jeunesse, aux côtés de la commission de communication.</p>
+      <div class="tagrow">
+        <span class="tag">Facebook</span>
+        <span class="tag">TikTok</span>
+        <span class="tag">YouTube</span>
+        <span class="tag">Diffusion locale</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap">
+      <h2>Trois missions, une seule voix</h2>
+      <p>Ce que fait le département multimédia se résume en trois grands axes, présentés dans les pages qui suivent : diffuser les cultes, couvrir les temps forts de la vie de l'église, et animer nos plateformes entre deux dimanches.</p>
+    </div>
+  </section>
+
+  <!-- AXE 1 -->
+  <section class="axis">
+    <div class="wrap axis-inner">
+      <div class="axis-icon">
+        <svg viewBox="0 0 64 64" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="20" y="10" width="16" height="30" rx="8"/>
+          <path d="M14 30a14 14 0 0 0 28 0"/>
+          <line x1="28" y1="44" x2="28" y2="52"/>
+          <line x1="20" y1="52" x2="36" y2="52"/>
+          <path d="M46 20c4 4 4 12 0 16" stroke-opacity="0.55"/>
+          <path d="M52 14c8 8 8 22 0 30" stroke-opacity="0.3"/>
+        </svg>
+      </div>
+      <div class="axis-body">
+        <span class="axis-num">AXE 1</span>
+        <h3>Diffusion des cultes</h3>
+        <p>Les cultes de 08h et de 10h sont retransmis en local et en direct sur les réseaux, pour que chacun — présent ou non — puisse y prendre part.</p>
+        <div class="chiplist">
+          <span class="chip">Diffusion locale (salle)</span>
+          <span class="chip">Facebook Live</span>
+          <span class="chip">TikTok Live</span>
+          <span class="chip">YouTube</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AXE 2 -->
+  <section class="axis">
+    <div class="wrap axis-inner reverse">
+      <div class="axis-icon">
+        <svg viewBox="0 0 64 64" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="8" y="18" width="40" height="28" rx="3"/>
+          <circle cx="28" cy="32" r="9"/>
+          <rect x="20" y="12" width="10" height="7" rx="1.5"/>
+          <circle cx="42" cy="24" r="1.6" fill="var(--teal)" stroke="none"/>
+        </svg>
+      </div>
+      <div class="axis-body">
+        <span class="axis-num">AXE 2</span>
+        <h3>Couverture média des activités</h3>
+        <p>Réunions, activités de jeunesse, séminaires, journées spéciales : chaque temps fort de la vie de l'église est capté et restitué en photos, capsules courtes ou mini-reportages.</p>
+        <div class="subgrid">
+          <div><b>Le jour même</b> — une photo ou un court extrait</div>
+          <div><b>Dans la semaine</b> — reportage ou montage complet</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AXE 3 -->
+  <section class="axis" style="border-bottom:none;">
+    <div class="wrap axis-inner">
+      <div class="axis-icon">
+        <svg viewBox="0 0 64 64" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 40c0-11 9-20 20-20"/>
+          <path d="M20 40c0-7 5-13 12-13"/>
+          <circle cx="32" cy="46" r="4"/>
+          <path d="M44 16l3 3M44 22l4 0M40 12l0 4" stroke-opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="axis-body">
+        <span class="axis-num">AXE 3</span>
+        <h3>Animation des plateformes</h3>
+        <p>Entre les cultes, des rubriques et des formats interactifs gardent nos pages vivantes et rapprochent la communauté, un contenu à la fois.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUBRIQUES -->
+  <section class="rubriques">
+    <div class="wrap">
+      <span class="eyebrow">Axe 3 · Rubriques récurrentes</span>
+      <h2>Trois rendez-vous, chaque semaine</h2>
+      <div class="rub-row">
+        <div class="rub-item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 26V12a4 4 0 0 1 8 0v14"/>
+            <path d="M8 26h20"/>
+            <path d="M14 30h12"/>
+          </svg>
+          <h4>Cantique du jour</h4>
+          <p>À la sortie du culte, un fidèle ou une chorale interprète un cantique de son choix et partage ce qu'il lui inspire.</p>
+        </div>
+        <div class="rub-item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 10h20v18l-6-4H10z"/>
+            <line x1="14" y1="16" x2="26" y2="16"/>
+            <line x1="14" y1="20" x2="22" y2="20"/>
+          </svg>
+          <h4>Verset du jour</h4>
+          <p>Un fidèle partage, à la sortie du culte, un verset qui lui parle particulièrement ces temps-ci.</p>
+        </div>
+        <div class="rub-item">
+          <svg viewBox="0 0 40 40" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="20" cy="20" r="11"/>
+            <path d="M20 13v7l5 4"/>
+          </svg>
+          <h4>Devoir de mémoire</h4>
+          <p>Les aînés de la communauté racontent une anecdote marquante de l'histoire de l'église.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section class="challenges">
+    <div class="wrap">
+      <span class="eyebrow">Axe 3 · Formats interactifs</span>
+      <h2>Le catalogue des challenges</h2>
+      <p>Onze formats courts, à faire tourner sur les plateformes pour varier les plaisirs et faire participer toute la communauté.</p>
+      <div class="idx">
+        <div class="idx-row"><span class="n">01</span><span class="t">Je suis méthodiste bien évidemment</span><span class="d">Énumérer des faits qui caractérisent l'église.</span></div>
+        <div class="idx-row"><span class="n">02</span><span class="t">Passe le micro à / Fais un câlin</span><span class="d">Décrire la personne suivante puis lui passer le micro.</span></div>
+        <div class="idx-row"><span class="n">03</span><span class="t">Montre-nous ta bible ou donne-nous l'argent</span><span class="d">Interpellation surprise d'un fidèle à la sortie du culte.</span></div>
+        <div class="idx-row"><span class="n">04</span><span class="t">Culture biblique</span><span class="d">Retrouver le livre biblique d'un verset ou d'une histoire citée.</span></div>
+        <div class="idx-row"><span class="n">05</span><span class="t">Sors de la vidéo si...</span><span class="d">Quitter le cadre si l'affirmation citée nous concerne.</span></div>
+        <div class="idx-row"><span class="n">06</span><span class="t">Responsable c'est moi</span><span class="d">Reconnaître une voix sans se retourner.</span></div>
+        <div class="idx-row"><span class="n">07</span><span class="t">Tire à l'épée</span><span class="d">Être le plus rapide à ouvrir une référence biblique.</span></div>
+        <div class="idx-row"><span class="n">08</span><span class="t">Il/elle est chrétien(ne) mais...</span><span class="d">Rester ou quitter la vidéo selon ce qui est cité.</span></div>
+        <div class="idx-row"><span class="n">09</span><span class="t">Place biblique que tu connais</span><span class="d">Citer à tour de rôle un lieu mentionné dans la Bible.</span></div>
+        <div class="idx-row"><span class="n">10</span><span class="t">Course de relais</span><span class="d">Deux équipes s'affrontent sur un champ lexical donné.</span></div>
+        <div class="idx-row"><span class="n">11</span><span class="t">Check my outfit</span><span class="d">Présenter sa tenue du jour devant la caméra.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="calendar">
+    <div class="wrap">
+      <span class="eyebrow" style="color:var(--gold);">Calendrier éditorial</span>
+      <h2>Une semaine type</h2>
+      <div class="cal-strip">
+        <div class="cal-day"><span class="d">Dim.</span><p>Direct des cultes 08h &amp; 10h + Verset et Cantique du jour</p></div>
+        <div class="cal-day"><span class="d">Lun.</span><p>Récap du culte : photos et meilleur extrait</p></div>
+        <div class="cal-day"><span class="d">Mar.</span><p>Challenge de la semaine</p></div>
+        <div class="cal-day"><span class="d">Mer.</span><p>Couverture d'une activité de milieu de semaine</p></div>
+        <div class="cal-day"><span class="d">Jeu.</span><p>Culture biblique ou devoir de mémoire</p></div>
+        <div class="cal-day"><span class="d">Ven.</span><p>Annonces et teasing du dimanche</p></div>
+        <div class="cal-day"><span class="d">Sam.</span><p>Vérifications techniques avant le direct</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>Rejoindre l'équipe</h2>
+      <p>Prise de son, cadrage, montage, community management, écriture : chaque talent a sa place dans ce département, sous la conduite de la jeunesse et aux côtés de la commission de communication.</p>
+      <p class="signoff">Département Multimédia — au service de l'assemblée, chaque dimanche et entre deux.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>Brochure de présentation — Département Multimédia</p>
+    </div>
+  </footer>
+
+</body>
+</html>
